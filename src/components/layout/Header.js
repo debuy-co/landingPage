@@ -1,36 +1,30 @@
-import classes from "./Header.module.css";
-import logoImage from "../../assets/watermark_icon_transparent_background.png";
 import React from "react";
+import classes from "./Header.module.css";
+import logo from "../../assets/logo/logo_transparent.png";
+import logoName from "../../assets/logo/logoname_transparent.png";
 
 function Header() {
   return (
     <header className={classes.header}>
-      <nav className={classes.nav}>
-        <img
-          src={logoImage}
-          alt="Bankist logo"
-          className={classes.nav__logo}
-          id="logo"
-        />
-        <ul className={classes.nav__links}>
-          <li className={classes.nav__item}>
-            <a className={classes.nav__link} href="#section--1">
-              Features
-            </a>
-          </li>
-          <li className={classes.nav__item}>
-            <a className={classes.nav__links} href="#section--2">
-              Operations
-            </a>
-          </li>
-          <li className={classes.nav__item}>
-            <a className={classes.nav__links} href="#section--3">
-              Testimonials
-            </a>
-          </li>
-          <li className={classes.nav__item}>Open account</li>
-        </ul>
-      </nav>
+      {/* we put the image inside the div so that we have a container that we can
+      format that contain our logo */}
+
+      <div className={classes.logo_box}>
+        <img src={logo} alt="Logo" className={classes.logo}></img>
+        <img src={logoName} alt="LogoName" className={classes.logo}></img>
+      </div>
+
+      {/* we put the text inside the div so that we can center all in the middle of the header */}
+      <div className={classes.text_box}>
+        <h1 className={classes.heading_primary}>
+          <span className={classes.heading_primary_main}>
+            Decentralized Contracts
+          </span>
+          <span className={classes.heading_primary_sub}>
+            Leveraging blockchain technologies within the supply-chain
+          </span>
+        </h1>
+      </div>
     </header>
   );
 }

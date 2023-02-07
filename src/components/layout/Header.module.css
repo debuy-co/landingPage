@@ -1,64 +1,57 @@
 .header {
-  padding: 0 5%;
-  height: 5 rem;
-  background-color: #3d3935;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  height: 95vh; /*vh is viewport height, 1vh for example is equal to 1% of the viewport height*/
+  background-image: linear-gradient(
+      to left top,
+      rgba(226, 225, 225, 0.8),
+      rgba(61, 57, 53, 0.8)
+    ),
+    url("/src/assets/img/background_block.jpg"); /*in this situation we have two background images on top of each other, the first one is the linear gradient the second one is the image*/
+  background-size: cover;
+  background-position: top; /*it ensure that the top of the image always stays at the top of the container*/
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    100% 85%,
+    0 100%
+  ); /*this gives the cut out effect on the back ground image*/
+
+  position: relative;
 }
 
-.nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 9rem;
-  width: 100%;
-  padding: 0 6rem;
-  z-index: 100;
+.logo_box {
+  /*a good way to position the logo box  is to use absolute positioning */
+  position: absolute;
+  top: 40px;
+  left: 40px;
 }
 
-/* nav and stickly class at the same time */
-.nav.sticky {
-  position: fixed;
-  background-color: rgba(255, 255, 255, 0.95);
+.logo {
+  height: 55px;
 }
 
-.nav__logo {
-  height: 4.5rem;
-  transition: all 0.3s;
+.heading_primary {
+  color: #3d3935;
+  text-transform: uppercase;
 }
 
-.nav__links {
-  display: flex;
-  align-items: center;
-  list-style: none;
+.heading_primary_main {
+  display: block; /*the default configuration is to be displayed as a text element, so without this configuration they would be one after the other and they would not occupy 100% of the width*/
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: 35px;
 }
 
-.nav__item {
-  margin-left: 4rem;
-}
-
-.nav__link:link,
-.nav__link:visited {
-  font-size: 1.7rem;
-  font-weight: 400;
-  color: inherit;
-  text-decoration: none;
+.heading_primary_sub {
   display: block;
-  transition: all 0.3s;
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: 15px;
 }
 
-.nav__link--btn:link,
-.nav__link--btn:visited {
-  padding: 0.8rem 2.5rem;
-  border-radius: 3rem;
-  background-color: var(--color-primary);
-  color: #222;
-}
-
-.nav__link--btn:hover,
-.nav__link--btn:active {
-  color: inherit;
-  background-color: var(--color-primary-darker);
-  color: #333;
+.text_box {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /*to make it clear, "top" and "left" are in relation to the parent element. but when we translate it, it is in relation to the element itself and this make possible that the element is exactly at the center*/
 }

@@ -1,13 +1,20 @@
-body {
+@import url("http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900");
+
+/* Selects all elements */
+* {
+  /*by default the browser apply a certain margin and padding to the elements so we remove it*/
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box; /* the boarders and the padding are not longer added to the total height or weidht of the element*/
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/*in this case we no longer use the universal selector but body, all the property will be inherithed by its child*/
+body {
+  /*here it means we select Lato font family and if not available we select sans-serif*/
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.7; /*means that the line height is 1.7 bigger than the predefinied line height*/
+  color: #777;
+  padding: 30px; /*with this padding it will give the nice white margin on all the webpage*/
 }
