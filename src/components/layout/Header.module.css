@@ -32,6 +32,7 @@
 .heading_primary {
   color: #3d3935;
   text-transform: uppercase;
+  backface-visibility: hidden; /*this property is just to remove the shaking unwanted effect from this heading element when the titles are animating*/
 }
 
 .heading_primary_main {
@@ -39,6 +40,16 @@
   font-size: 30px;
   font-weight: 700;
   letter-spacing: 35px;
+
+  /*these below are the least animation properties that are required to work*/
+  animation-name: moveInLeft;
+  animation-duration: 1s;
+
+  /*these are some additionals property that we can use*/
+  animation-timing-function: ease-out; /*more info at https://developer.mozilla.org/en-US/docs/Web/CSS/animation-timing-function*/
+  /*
+  animation-delay: 3s;
+  animation-iteration-count: 3; /*in this case it will happen 3 times*/
 }
 
 .heading_primary_sub {
@@ -46,6 +57,15 @@
   font-size: 20px;
   font-weight: 400;
   letter-spacing: 15px;
+
+  /*
+  animation-name: moveInRight;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
+  */
+
+  /*here above can be written quickly like this*/
+  animation: moveInRight 1s ease-out;
 }
 
 .text_box {
@@ -54,4 +74,42 @@
   left: 50%;
   transform: translate(-50%, -50%);
   /*to make it clear, "top" and "left" are in relation to the parent element. but when we translate it, it is in relation to the element itself and this make possible that the element is exactly at the center*/
+}
+
+/*here we create the animation that we want to display*/
+/*for browser performances is better to only animate 2 properties, 1 is opacity and the other 1 would be the transform property*/
+@keyframes moveInLeft {
+  /*here is where the animation start*/
+  0% {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+
+  80% {
+    opacity: 0.8;
+    transform: translateX(10px);
+  }
+  /*here is where the animation finish*/
+  100% {
+    opacity: 1;
+    transform: translate(
+      0
+    ); /*if we translate 0, it will look the way that it just looks now*/
+  }
+}
+
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+
+  80% {
+    opacity: 0.8;
+    transform: translateX(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
 }
