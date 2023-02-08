@@ -48,7 +48,7 @@ visited -> Matches links that have been visited.
 /*we want to the "visited" state to looks exactly like the "link" state*/
 .btn:link,
 .btn:visited {
-  position: absolute; /**/
+  position: absolute;
   text-transform: uppercase;
   text-decoration: none;
   padding: 15px 10px; /*if we apply only 1 value it will apply for all, if we apply two instead it will cover top and lateral*/
@@ -71,8 +71,43 @@ visited -> Matches links that have been visited.
 }
 
 .btn_white {
-  background-color: #fff;
-  color: #777;
+  background-color: #3d3935;
+  color: #fff;
+  border-color: #fff;
+}
+
+/*A CSS pseudo-element is a keyword added to a selector that lets you style a specific part of the selected element(s). For example, ::first-line can be used to change the font of the first line of a paragraph.*/
+/*::after creates a pseudo-element that is the last child of the selected element. It is often used to add cosmetic content to an element with the content property. It is inline by default*/
+/*the target here is to create an element that looks exactly like the button but it is behind the button --> a PSEUDO element*/
+.btn::after {
+  content: ""; /*this property is necessary otherwise is not goingt to appear*/
+  display: inline-block; /*this property is necessary otherwise is not goingt to appear*/
+  height: 100%;
+  width: 100%;
+  border-radius: 100px;
+  position: absolute; /*the absolute position needs to have a reference*/
+  top: 0; /*we want it to be exactly behind the main one*/
+  left: 0; /*we want it to be exactly behind the main one*/
+  z-index: -1; /*it defines the posiion of the element if one is on the top of the other*/
+  transition: all 0.4s; /*we want it to be animated so we give some animation time to all properties*/
+}
+
+/*here below is the hover for the after element*/
+.btn:hover::after {
+  transform: scale(1.5);
+  opacity: 0; /*opacity zero sets something to invisible, so together with the animation property (transition) it will give us a fade out effect*/
+}
+
+.btn_white::after {
+  background-color: #3d3935;
+  color: #fff;
+  border-color: #fff;
+}
+
+.btn_animation {
+  animation: moveInTop 0.5s ease-out 0.75s; /*the last value is the delay*/
+  animation-fill-mode: backwards; /*in this way we say to show the first animation status when building the element, in other words the animation will apply the values defined in the first relevant keyframe as soon as it is applied to the target, and retain this during the animation-delay period*/
+  /*to avoid that the element is shown and then the animation start, since there is animation delay*/
 }
 
 .heading_primary {
@@ -160,18 +195,34 @@ visited -> Matches links that have been visited.
   }
 }
 
-@keyframes increaseButtom {
+@keyframes moveInLeft {
+  /*here is where the animation start*/
   0% {
-    opacity: 1;
-    transform: scale(1);
+    opacity: 0;
+    transform: translateX(-100px);
   }
-  50% {
+
+  80% {
+    opacity: 0.8;
+    transform: translateX(10px);
+  }
+  /*here is where the animation finish*/
+  100% {
     opacity: 1;
-    transform: scale(2);
+    transform: translate(
+      0
+    ); /*if we translate 0, it will look the way that it just looks now*/
+  }
+}
+
+@keyframes moveInTop {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px);
   }
 
   100% {
     opacity: 1;
-    transform: scale(1);
+    transform: translateY(0);
   }
 }

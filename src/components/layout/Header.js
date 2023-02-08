@@ -8,7 +8,6 @@ function Header() {
     <header className={classes.header}>
       {/* we put the image inside the div so that we have a container that we can
       format that contain our logo */}
-
       <div className={classes.logo_box}>
         <img src={logo} alt="Logo" className={classes.logo}></img>
         <img src={logoName} alt="LogoName" className={classes.logo}></img>
@@ -16,7 +15,10 @@ function Header() {
 
       <div className={classes.button_box}>
         {/*The anchor tag in HTML is used to navigate to different web pages using an href attribute, wew use it instead of the button element*/}
-        <a href="a" className={`${classes.btn} ${classes.btn_white}`}>
+        <a
+          href="a"
+          className={`${classes.btn} ${classes.btn_white} ${classes.btn_animation}`}
+        >
           Bottone
         </a>{" "}
       </div>
