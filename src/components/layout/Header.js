@@ -14,6 +14,13 @@ function Header() {
         <img src={logoName} alt="LogoName" className={classes.logo}></img>
       </div>
 
+      <div className={classes.button_box}>
+        {/*The anchor tag in HTML is used to navigate to different web pages using an href attribute, wew use it instead of the button element*/}
+        <a href="a" className={`${classes.btn} ${classes.btn_white}`}>
+          Bottone
+        </a>{" "}
+      </div>
+
       {/* we put the text inside the div so that we can center all in the middle of the header */}
       <div className={classes.text_box}>
         <h1 className={classes.heading_primary}>

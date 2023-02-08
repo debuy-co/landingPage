@@ -16,6 +16,11 @@
   ); /*this gives the cut out effect on the back ground image*/
 
   position: relative;
+  /*
+  when using "position" in CSS we have to consider:
+  RELATIVE -> The element is positioned according to the normal flow of the document, and then offset relative to itself based on the values of top, right, bottom, and left.
+  ABSOLUTE -> The element is removed from the normal document flow, and no space is created for the element in the page layout. It is positioned relative to its closest positioned ancestor, if any;
+  */
 }
 
 .logo_box {
@@ -26,7 +31,48 @@
 }
 
 .logo {
-  height: 55px;
+  height: 60px;
+}
+
+.button_box {
+  position: absolute;
+  top: 40px;
+  right: 150px;
+}
+
+/*A CSS pseudo-class is a keyword added to a selector that specifies a special state of the selected element(s). For example, the pseudo-class :hover can be used to select a button when a user's pointer hovers over the button and this selected button can then be styled.*/
+/*:
+link -> Matches links that have not yet been visited.
+visited -> Matches links that have been visited.
+*/
+/*we want to the "visited" state to looks exactly like the "link" state*/
+.btn:link,
+.btn:visited {
+  position: absolute; /**/
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 15px 10px; /*if we apply only 1 value it will apply for all, if we apply two instead it will cover top and lateral*/
+  display: inline-block; /*If we want to apply padding we need the inline-block property, The display CSS property sets whether an element is treated as a block or inline element and the layout used for its children, such as flow layout, grid or flex.*/
+  border-radius: 100px;
+  /*transition is another kind of animation, which is the more complex one usually*/
+  /*and the transition property has to be in the initial state*/
+  transition: all 0.2s; /*all the properties are enabled to be animated*/
+}
+
+.btn:hover {
+  transform: translateY(-3px); /*we move up a bit*/
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /*the shadow will be 10px down and 20px blur*/
+}
+
+/*this is when we click the state*/
+.btn:active {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn_white {
+  background-color: #fff;
+  color: #777;
 }
 
 .heading_primary {
@@ -111,5 +157,21 @@
   100% {
     opacity: 1;
     transform: translate(0);
+  }
+}
+
+@keyframes increaseButtom {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(2);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
   }
 }
