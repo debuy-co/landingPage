@@ -22,22 +22,23 @@
   ABSOLUTE -> The element is removed from the normal document flow, and no space is created for the element in the page layout. It is positioned relative to its closest positioned ancestor, if any;
   */
 }
+/*we are now going to change all the px variables to rem. Rem is in relation to the root font size*/
 
-.logo_box {
+.header__logo-box {
   /*a good way to position the logo box  is to use absolute positioning */
   position: absolute;
-  top: 40px;
-  left: 40px;
+  top: 4rem;
+  left: 4rem;
 }
 
-.logo {
-  height: 60px;
+.header__logo {
+  height: 6rem;
 }
 
-.button_box {
+.header__button-box {
   position: absolute;
-  top: 40px;
-  right: 150px;
+  top: 4rem;
+  right: 15rem;
 }
 
 /*A CSS pseudo-class is a keyword added to a selector that specifies a special state of the selected element(s). For example, the pseudo-class :hover can be used to select a button when a user's pointer hovers over the button and this selected button can then be styled.*/
@@ -51,26 +52,27 @@ visited -> Matches links that have been visited.
   position: absolute;
   text-transform: uppercase;
   text-decoration: none;
-  padding: 15px 10px; /*if we apply only 1 value it will apply for all, if we apply two instead it will cover top and lateral*/
+  padding: 1.5rem 1rem; /*if we apply only 1 value it will apply for all, if we apply two instead it will cover top and lateral*/
   display: inline-block; /*If we want to apply padding we need the inline-block property, The display CSS property sets whether an element is treated as a block or inline element and the layout used for its children, such as flow layout, grid or flex.*/
-  border-radius: 100px;
+  border-radius: 10rem;
   /*transition is another kind of animation, which is the more complex one usually*/
   /*and the transition property has to be in the initial state*/
   transition: all 0.2s; /*all the properties are enabled to be animated*/
+  font-size: 1.6rem;
 }
 
 .btn:hover {
-  transform: translateY(-3px); /*we move up a bit*/
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /*the shadow will be 10px down and 20px blur*/
+  transform: translateY(-0.3rem); /*we move up a bit*/
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2); /*the shadow will be 10px down and 20px blur*/
 }
 
 /*this is when we click the state*/
 .btn:active {
-  transform: translateY(-1px);
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  transform: translateY(-0.1rem);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
 }
 
-.btn_white {
+.btn--white {
   background-color: #3d3935;
   color: #fff;
   border-color: #fff;
@@ -84,7 +86,7 @@ visited -> Matches links that have been visited.
   display: inline-block; /*this property is necessary otherwise is not goingt to appear*/
   height: 100%;
   width: 100%;
-  border-radius: 100px;
+  border-radius: 10rem;
   position: absolute; /*the absolute position needs to have a reference*/
   top: 0; /*we want it to be exactly behind the main one*/
   left: 0; /*we want it to be exactly behind the main one*/
@@ -98,13 +100,13 @@ visited -> Matches links that have been visited.
   opacity: 0; /*opacity zero sets something to invisible, so together with the animation property (transition) it will give us a fade out effect*/
 }
 
-.btn_white::after {
+.btn--white::after {
   background-color: #3d3935;
   color: #fff;
   border-color: #fff;
 }
 
-.btn_animation {
+.btn--animation {
   animation: moveInTop 0.5s ease-out 0.75s; /*the last value is the delay*/
   animation-fill-mode: backwards; /*in this way we say to show the first animation status when building the element, in other words the animation will apply the values defined in the first relevant keyframe as soon as it is applied to the target, and retain this during the animation-delay period*/
   /*to avoid that the element is shown and then the animation start, since there is animation delay*/
@@ -116,11 +118,11 @@ visited -> Matches links that have been visited.
   backface-visibility: hidden; /*this property is just to remove the shaking unwanted effect from this heading element when the titles are animating*/
 }
 
-.heading_primary_main {
+.heading_primary--main {
   display: block; /*the default configuration is to be displayed as a text element, so without this configuration they would be one after the other and they would not occupy 100% of the width*/
-  font-size: 30px;
+  font-size: 3rem;
   font-weight: 700;
-  letter-spacing: 35px;
+  letter-spacing: 3.5rem;
 
   /*these below are the least animation properties that are required to work*/
   animation-name: moveInLeft;
@@ -133,11 +135,11 @@ visited -> Matches links that have been visited.
   animation-iteration-count: 3; /*in this case it will happen 3 times*/
 }
 
-.heading_primary_sub {
+.heading_primary--sub {
   display: block;
-  font-size: 20px;
+  font-size: 2rem;
   font-weight: 400;
-  letter-spacing: 15px;
+  letter-spacing: 1.5rem;
 
   /*
   animation-name: moveInRight;
@@ -149,7 +151,7 @@ visited -> Matches links that have been visited.
   animation: moveInRight 1s ease-out;
 }
 
-.text_box {
+.header__text-box {
   position: absolute;
   top: 40%;
   left: 50%;
@@ -163,12 +165,12 @@ visited -> Matches links that have been visited.
   /*here is where the animation start*/
   0% {
     opacity: 0;
-    transform: translateX(-100px);
+    transform: translateX(-10rem);
   }
 
   80% {
     opacity: 0.8;
-    transform: translateX(10px);
+    transform: translateX(1rem);
   }
   /*here is where the animation finish*/
   100% {
@@ -182,12 +184,12 @@ visited -> Matches links that have been visited.
 @keyframes moveInRight {
   0% {
     opacity: 0;
-    transform: translateX(100px);
+    transform: translateX(10rem);
   }
 
   80% {
     opacity: 0.8;
-    transform: translateX(-10px);
+    transform: translateX(-1rem);
   }
   100% {
     opacity: 1;
@@ -195,30 +197,10 @@ visited -> Matches links that have been visited.
   }
 }
 
-@keyframes moveInLeft {
-  /*here is where the animation start*/
-  0% {
-    opacity: 0;
-    transform: translateX(-100px);
-  }
-
-  80% {
-    opacity: 0.8;
-    transform: translateX(10px);
-  }
-  /*here is where the animation finish*/
-  100% {
-    opacity: 1;
-    transform: translate(
-      0
-    ); /*if we translate 0, it will look the way that it just looks now*/
-  }
-}
-
 @keyframes moveInTop {
   0% {
     opacity: 0;
-    transform: translateY(-50px);
+    transform: translateY(-5rem);
   }
 
   100% {
