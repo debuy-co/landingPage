@@ -1,5 +1,5 @@
 import React from "react";
-import classes from "./Header.module.css";
+import classes from "../../sass/Header.module.scss";
 import logo from "../../assets/logo/logo_transparent.png";
 import logoName from "../../assets/logo/logoname_transparent.png";
 
