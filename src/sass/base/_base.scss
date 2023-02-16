@@ -1,3 +1,4 @@
+//here we will put all the low level scss to be imported in the other files
 @import url("http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900");
 
 /* Selects all elements */
@@ -16,18 +17,11 @@ html {
   /*font-size: 10px;*/ /*in this case 1rem is exactly 10px and it is pretty used practice to give 10px to the root font size to have easier calculation for rem*/
 
   /*it is actually a bad practice to give a fixed pixel value to the root font size, because we are overwriting the user default settins. It is better to use in percentage and since we still want 10px and the absolute default px is 16 (if the user haven't change it) so we need to give:*/
-  font-size: 62.5%;
+  font-size: 62.5%; //this is not typography , because it is just a setting of the size of the elements in the page --> this define what 1rem is
 }
 
 /*in this case we no longer use the universal selector but body, all the property will be inherithed by its child*/
 body {
-  /*here it means we select Lato font family and if not available we select sans-serif*/
-  font-family: "Lato", sans-serif;
-  font-weight: 400;
-  /*font-size: 16px;*/
-  line-height: 1.7; /*means that the line height is 1.7 bigger than the predefinied line height*/
-  color: #777;
-  padding: 3rem; /*with this padding it will give the nice white margin on all the webpage*/
   box-sizing: border-box; /* the boarders and the padding are not longer added to the total height or weidht of the element*/
   /*if we set box-sizing to border box if will equivalent to calculate height and width oncluding the content dimension + the padding*/
 }

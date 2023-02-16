@@ -1,0 +1,49 @@
+/*here we create the animation that we want to display*/
+/*for browser performances is better to only animate 2 properties, 1 is opacity and the other 1 would be the transform property*/
+@keyframes moveInLeft {
+  /*here is where the animation start*/
+  0% {
+    opacity: 0;
+    transform: translateX(-10rem);
+  }
+
+  80% {
+    opacity: 0.8;
+    transform: translateX(1rem);
+  }
+  /*here is where the animation finish*/
+  100% {
+    opacity: 1;
+    transform: translate(
+      0
+    ); /*if we translate 0, it will look the way that it just looks now*/
+  }
+}
+
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(10rem);
+  }
+
+  80% {
+    opacity: 0.8;
+    transform: translateX(-1rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+@keyframes moveInTop {
+  0% {
+    opacity: 0;
+    transform: translateY(-5rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

@@ -1,0 +1,71 @@
+.btn {
+  /*we are now going to change all the px variables to rem. Rem is in relation to the root font size*/
+
+  /*A CSS pseudo-class is a keyword added to a selector that specifies a special state of the selected element(s). For example, the pseudo-class :hover can be used to select a button when a user's pointer hovers over the button and this selected button can then be styled.*/
+  /*:
+    link -> Matches links that have not yet been visited.
+    visited -> Matches links that have been visited.
+    */
+  /*we want to the "visited" state to looks exactly like the "link" state*/
+  &:link,
+  &:visited {
+    position: absolute;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 1.5rem 1rem; /*if we apply only 1 value it will apply for all, if we apply two instead it will cover top and lateral*/
+    display: inline-block; /*If we want to apply padding we need the inline-block property, The display CSS property sets whether an element is treated as a block or inline element and the layout used for its children, such as flow layout, grid or flex.*/
+    border-radius: 10rem;
+    /*transition is another kind of animation, which is the more complex one usually*/
+    /*and the transition property has to be in the initial state*/
+    transition: all 0.2s; /*all the properties are enabled to be animated*/
+    font-size: 1.6rem;
+  }
+  &:hover {
+    transform: translateY(-0.3rem); /*we move up a bit*/
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2); /*the shadow will be 10px down and 20px blur*/
+    /*here below is the hover for the after element*/
+
+    &::after {
+      transform: scale(1.5);
+      opacity: 0; /*opacity zero sets something to invisible, so together with the animation property (transition) it will give us a fade out effect*/
+    }
+  }
+
+  /*this is when we click the state*/
+  &:active {
+    transform: translateY(-0.1rem);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+  }
+  &--white {
+    background-color: $color-secondary;
+    color: $color-white;
+    border-color: $color-white;
+    &::after {
+      background-color: $color-secondary;
+      color: $color-white;
+      border-color: $color-white;
+    }
+  }
+
+  /*A CSS pseudo-element is a keyword added to a selector that lets you style a specific part of the selected element(s). For example, ::first-line can be used to change the font of the first line of a paragraph.*/
+  /*::after creates a pseudo-element that is the last child of the selected element. It is often used to add cosmetic content to an element with the content property. It is inline by default*/
+  /*the target here is to create an element that looks exactly like the button but it is behind the button --> a PSEUDO element*/
+  &::after {
+    content: ""; /*this property is necessary otherwise is not goingt to appear*/
+    display: inline-block; /*this property is necessary otherwise is not goingt to appear*/
+    height: 100%;
+    width: 100%;
+    border-radius: 10rem;
+    position: absolute; /*the absolute position needs to have a reference*/
+    top: 0; /*we want it to be exactly behind the main one*/
+    left: 0; /*we want it to be exactly behind the main one*/
+    z-index: -1; /*it defines the posiion of the element if one is on the top of the other*/
+    transition: all 0.4s; /*we want it to be animated so we give some animation time to all properties*/
+  }
+
+  &--animation {
+    animation: moveInTop 0.5s ease-out 0.75s; /*the last value is the delay*/
+    animation-fill-mode: backwards; /*in this way we say to show the first animation status when building the element, in other words the animation will apply the values defined in the first relevant keyframe as soon as it is applied to the target, and retain this during the animation-delay period*/
+    /*to avoid that the element is shown and then the animation start, since there is animation delay*/
+  }
+}

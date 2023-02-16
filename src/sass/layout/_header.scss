@@ -1,0 +1,49 @@
+.header {
+  height: 95vh; /*vh is viewport height, 1vh for example is equal to 1% of the viewport height*/
+  background-image: linear-gradient(
+      to left top,
+      rgba($color-primary, 0.8),
+      rgba($color-secondary, 0.8)
+    ),
+    url("../../assets/img/background_block.jpg"); /*in this situation we have two background images on top of each other, the first one is the linear gradient the second one is the image*/
+  background-size: cover;
+  background-position: top; /*it ensure that the top of the image always stays at the top of the container*/
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    100% 85%,
+    0 100%
+  ); /*this gives the cut out effect on the back ground image*/
+
+  position: relative;
+  /*
+    when using "position" in CSS we have to consider:
+    RELATIVE -> The element is positioned according to the normal flow of the document, and then offset relative to itself based on the values of top, right, bottom, and left.
+    ABSOLUTE -> The element is removed from the normal document flow, and no space is created for the element in the page layout. It is positioned relative to its closest positioned ancestor, if any;
+    */
+
+  &__logo-box {
+    /*a good way to position the logo box  is to use absolute positioning */
+    position: absolute;
+    top: 4rem;
+    left: 4rem;
+  }
+
+  &__logo {
+    height: 6rem;
+  }
+
+  &__button-box {
+    position: absolute;
+    top: 4rem;
+    right: 15rem;
+  }
+
+  &__text-box {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /*to make it clear, "top" and "left" are in relation to the parent element. but when we translate it, it is in relation to the element itself and this make possible that the element is exactly at the center*/
+  }
+}
