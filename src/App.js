@@ -1,10 +1,11 @@
 import Header from "./components/layout/Header";
+import GridTest from "./components/layout/GridTest";
 
 function App() {
   return (
     <div>
       <Header />
-      <h1>Prova</h1>
+      <GridTest />
     </div>
   );
 }
