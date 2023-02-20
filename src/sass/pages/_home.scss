@@ -1,0 +1,5 @@
+.section-about {
+  background-color: $color-grey-light-1;
+  padding: 25rem 0;
+  margin-top: -20vh; //we gave a negative margin so that the entire section move up and it covers the white space leave behind by the previous section which has the the bottom right corner cut off.
+}

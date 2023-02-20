@@ -2,7 +2,7 @@
   max-width: $grid-width; //nowadays the standard is 1140 px because it fits perfectly into a 1280 monitor;
   //we selected max-width instead of the width because it will let our code to adapt to the available width.
   //so basically if the available space is 1140px fine , otherwise it will fill 100% of the available space
-  background-color: #eee;
+  //background-color: #eee;
   margin: 0 auto; //this is the trick that everyone use to center elements inside another block
   /*
   specifically -> When you have specified a width on the object that you have applied margin: 0 auto to, the object will sit centrally within it's parent container.Specifying auto as the second parameter basically tells the browser to automatically determine the left and right margins itself, which it does by setting them equally. It guarantees that the left and right margins will be set to the same size. The first parameter 0 indicates that the top and bottom margins will both be set to 0.
@@ -20,7 +20,7 @@
   //this is the attribute selector and it will make our code cleaner instead of repeating class by class
   //this will select all the class where the name START with "col-", and the magic happen with the symbol "^", instead the symbol "*" will select the class which CONTAIN "col-", instead the symbol "$" will select the class which END with "col-"
   [class^="col-"] {
-    background-color: orangered;
+    //background-color: orangered;
     float: left; //in order to have the elements horizontally rendered
     //if all the elements are floating the height of the row element will collapse and become zero, so what we do in this case is to use the "clear fix hack" as we added above with the "include" method
     &:not(:last-child) {
