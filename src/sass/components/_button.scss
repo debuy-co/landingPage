@@ -18,7 +18,7 @@
     /*transition is another kind of animation, which is the more complex one usually*/
     /*and the transition property has to be in the initial state*/
     transition: all 0.2s; /*all the properties are enabled to be animated*/
-    font-size: 1.6rem;
+    font-size: $default-font-size;
   }
   &:hover {
     transform: translateY(-0.3rem); /*we move up a bit*/
@@ -67,5 +67,30 @@
     animation: moveInTop 0.5s ease-out 0.75s; /*the last value is the delay*/
     animation-fill-mode: backwards; /*in this way we say to show the first animation status when building the element, in other words the animation will apply the values defined in the first relevant keyframe as soon as it is applied to the target, and retain this during the animation-delay period*/
     /*to avoid that the element is shown and then the animation start, since there is animation delay*/
+  }
+}
+
+.btn-text {
+  &:link,
+  &:visited {
+    font-size: $default-font-size;
+    color: $color-highlight1;
+    display: inline-block;
+    text-decoration: none;
+    border-bottom: 1px solid $color-highlight1;
+    padding: 3px;
+    transition: all 0.2s;
+  }
+
+  &:hover {
+    background-color: $color-highlight1;
+    color: $color-white;
+    box-shadow: 0 1rem 2rem rgba(black, 0.15);
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    box-shadow: 0 0.5rem 1rem rgba(black, 0.15);
+    transform: translateY(0px);
   }
 }

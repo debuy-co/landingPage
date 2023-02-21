@@ -1,5 +1,4 @@
 import Header from "./components/layout/Header";
-import GridTest from "./components/layout/GridTest";
 import About from "./components/about/About";
 
 function App() {
