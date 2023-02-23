@@ -1,4 +1,5 @@
 import React from "react";
+import ImageWhite from "../../assets/img/block-grey.jpg";
 
 //TODO: in questa sezione sono da mettere i motivi per il quale scegliere la blockchain, e le immagini che si muovono in automatico e i pargrafi che cambiano di conseguenza
 
@@ -22,7 +23,25 @@ function About() {
             Learn more {"\u2192"}
           </a>
         </div>
-        <div className="col-1-of-2">Col 1 of 2</div>
+        <div className="col-1-of-2">
+          <div className="composition">
+            <img
+              src={ImageWhite}
+              alt="Photo1"
+              className="composition__photo composition__photo--p1"
+            />
+            <img
+              src={ImageWhite}
+              alt="Photo2"
+              className="composition__photo composition__photo--p2"
+            />
+            <img
+              src={ImageWhite}
+              alt="Photo3"
+              className="composition__photo composition__photo--p3"
+            />
+          </div>
+        </div>
       </div>
     </section>
   );

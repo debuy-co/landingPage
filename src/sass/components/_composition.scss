@@ -1,0 +1,41 @@
+.composition {
+  position: relative; //this will be the reference of composition__photo
+  &__photo {
+    width: 55%; //we always have to define the width of the image in percentage because in this way it will nicely scale with the view port
+    box-shadow: 0 1.5rem 4rem rgba(black, 0.4);
+    border-radius: 2px;
+    transition: all 0.2s;
+    z-index: 10;
+    outline-offset: 2rem;
+
+    position: absolute; //as soon as we set the absolute position ,this will positioned referencing to is first reference parent element
+    &--p1 {
+      left: 0;
+      top: -2rem;
+    }
+
+    &--p2 {
+      right: 0rem;
+      top: 2rem;
+    }
+
+    &--p3 {
+      left: 20%;
+      top: 10rem;
+    }
+
+    &:hover {
+      transform: scale(1.05) translateY(-0.5rem);
+      box-shadow: 0 2.5rem 4rem rgba(black, 0.8);
+      z-index: 20; //in this way this will always have the highest Z index so it shall be displayed on top
+
+      outline: 1.5rem solid $color-highlight1;
+    }
+  }
+
+  //when we hover the composition, below code will apply to the element composition__photo which is not hovered.
+  //in this way it will srink what is not hover
+  &:hover &__photo:not(:hover) {
+    transform: scale(0.95);
+  }
+}
