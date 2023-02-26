@@ -1,7 +1,7 @@
 import React from "react";
 import ImageWhite from "../../assets/img/block-grey.jpg";
 
-//TODO: in questa sezione sono da mettere i motivi per il quale scegliere la blockchain, e le immagini che si muovono in automatico e i pargrafi che cambiano di conseguenza
+//TODO: in questa sezione sono da mettere i motivi (li trovi sul file readme) per il quale scegliere la blockchain, e le immagini che si muovono in automatico e i pargrafi che cambiano di conseguenza
 
 function About() {
   return (

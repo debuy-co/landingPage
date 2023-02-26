@@ -1,0 +1,34 @@
+.feature-box {
+  font-size: 1.5rem;
+  background-color: rgba(
+    $color-white,
+    0.8
+  ); //here we give a bit of transparent touch
+  padding: 2.5rem;
+  text-align: center;
+  border-radius: 3px;
+  box-shadow: 0 1.5rem 4rem rgba(black, 0.15);
+
+  transition: all 0.2s;
+
+  &:hover {
+    transform: translateY(-0.5rem) scale(1.05);
+    box-shadow: 0 2.5rem 4rem rgba(black, 0.8);
+  }
+
+  &__icon {
+    font-size: 6rem; //don't forget that these icons are actually fonts, so we can change the icon size in this way
+    margin-bottom: 0.5;
+    display: inline-block;
+    background-image: linear-gradient(
+      to right,
+      $color-highlight1,
+      darken($color-highlight1, 20%)
+    );
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+
+  //here we can actually avoid to code this part because it will inherit the font size from .feature-box and that is all we need
+  //&__text {}
+}
