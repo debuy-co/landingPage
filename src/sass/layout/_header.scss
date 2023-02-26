@@ -8,6 +8,7 @@
     url("../../assets/img/background_block.jpg"); /*in this situation we have two background images on top of each other, the first one is the linear gradient the second one is the image*/
   background-size: cover;
   background-position: top; /*it ensure that the top of the image always stays at the top of the container*/
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
   clip-path: polygon(
     0 0,
     100% 0,
