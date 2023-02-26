@@ -1,0 +1,69 @@
+.card {
+  //to give a better animation when moving the card we use the perspective property on the parent element in this case on the card
+  //this will give an effect as if the card is moving towards you
+  //does not make sense but it works!
+  perspective: 150rem;
+  -moz-perspective: 150rem; //in order to implement it also on firefox browser, because it is a new property and it is not implemented in all browsers
+
+  position: relative;
+  height: 50rem; //I don't know why but we have to give the same height as the child
+
+  &__side {
+    height: 50rem;
+
+    border-radius: 3px;
+    box-shadow: (0 1.5rem 4rem rgba(black, 0.15));
+
+    transition: all 0.8s ease; //"ease" instead of "linear" animation
+    position: absolute; //we need to use absolute position in order to have the two sides of the card one on the top of the other, remember when using this you need to give the parent a relative position
+    width: 100%; //when you give them an absolute position they start to squie to their child width so we have to set the width
+    top: 0;
+    left: 0;
+    backface-visibility: hidden; //so that we will no longer be able to see the backpart of the elements
+
+    &--front {
+      background-color: $color-white;
+      z-index: 10; //by default it will be on top
+    }
+
+    &--back {
+      transform: rotateY(
+        180deg
+      ); //the back side is already flipped at the beginning
+
+      &-1 {
+        background-image: linear-gradient(
+          to right bottom,
+          $color-vibrant-pinkish-red,
+          darken($color-vibrant-pinkish-red, 30%)
+        );
+      }
+
+      &-2 {
+        background-image: linear-gradient(
+          to right bottom,
+          $color-bright-turquoise,
+          darken($color-bright-turquoise, 30%)
+        );
+      }
+
+      &-3 {
+        background-image: linear-gradient(
+          to right bottom,
+          $color-warm-orange,
+          darken($color-warm-orange, 30%)
+        );
+      }
+    }
+  }
+
+  //this means when we hover the card (the main component) we want the card__side to transform
+  &:hover &__side--front {
+    transform: rotateY(180deg);
+  }
+
+  &:hover &__side--back {
+    transform: rotateY(0);
+    z-index: 20;
+  }
+}
