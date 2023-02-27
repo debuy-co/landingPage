@@ -68,6 +68,8 @@
     z-index: 20;
   }
 
+  //FRONT SIDE STYLING
+
   &__picture {
     background-size: cover;
     height: 25rem;
@@ -132,6 +134,22 @@
         darken(rgba($color-vibrant-pinkish-red, 0.85), 30%)
       );
     }
+
+    &--2 {
+      background-image: linear-gradient(
+        to right bottom,
+        rgba($color-bright-turquoise, 0.85),
+        darken(rgba($color-bright-turquoise, 0.85), 30%)
+      );
+    }
+
+    &--3 {
+      background-image: linear-gradient(
+        to right bottom,
+        rgba($color-warm-orange, 0.85),
+        darken(rgba($color-warm-orange, 0.85), 30%)
+      );
+    }
   }
 
   &__details {
@@ -150,5 +168,34 @@
         }
       }
     }
+  }
+
+  //BACK SIDE STYLING
+  &__cta {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(
+      -50%,
+      -50%
+    ); //to center it (it is extactly the same thing that we did in the header)
+    width: 90%; //otherwise the button will not show entirely the text
+    text-align: center; //so that also the button is centered
+    //TODO: vedere per quale motivo non si centra il pulsante
+  }
+
+  &__price-box {
+    margin-bottom: 0.8rem;
+    color: $color-white;
+  }
+
+  &__price-only {
+    font-size: 1.5rem;
+    text-transform: uppercase;
+  }
+
+  &__price-value {
+    font-size: 6rem;
+    font-weight: 100; //when we have huge text is better to make it thin
   }
 }
