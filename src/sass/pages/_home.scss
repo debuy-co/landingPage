@@ -32,3 +32,26 @@
   padding: 25rem 0 50rem 0;
   margin-top: -10rem;
 }
+
+.section-testimonials {
+  padding: 15rem 0;
+  background-image: linear-gradient(
+      to left top,
+      rgba($color-primary, 0.8),
+      rgba($color-secondary, 0.8)
+    ),
+    url("../../assets/img/background_block2.jpg");
+  background-size: cover;
+  background-position: top;
+
+  margin-top: -20rem; //in order to cover the white spaces left behind as done for the about section
+  transform: skewY(
+    -7deg
+  ); //instead of using clip-path like we did in the header we use this
+
+  //this way below we select every DIRECT child and we skew back to 7 deg positive
+  //take a close look to ">" without this it will select all the chilid but we just want the DIRECT child
+  & > * {
+    transform: skewY(7deg);
+  }
+}

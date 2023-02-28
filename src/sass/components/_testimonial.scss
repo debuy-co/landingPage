@@ -1,0 +1,39 @@
+.testimonial {
+  width: 75%;
+  margin: 0 auto;
+  box-shadow: 0 3rem 6rem rgba(black, 0.1);
+  background-color: $color-white;
+  border-radius: 3px;
+  padding: 3rem;
+  font-size: 1.6rem;
+
+  //to give the parallelepipedo shape
+  transform: skewX(-12deg);
+
+  & > * {
+    transform: skewX(12deg); //to skew back
+  }
+
+  &__shape {
+    width: 15rem;
+    height: 15rem;
+    float: left; //let it sit on the left side
+
+    //and in order to make all the content wrap around a circle on the right side we can define below property (shape-outside)
+    //this property requires that the element is floated and has defined width and height
+    -webkit-shape-outside: circle(50% at 50% 50%); //in order to work in safari
+    shape-outside: circle(50% at 50% 50%);
+
+    //now we give the __shape and actual circle figure
+    -webkit-clip-path: circle(50% at 50% 50%);
+    clip-path: circle(50% at 50% 50%);
+  }
+
+  &__img {
+    height: 100%; //in this case it will be 15rem height because it is inside __shape and so it has 15rem avialable space if it is set to 100%
+  }
+
+  &__text {
+    color: orangered;
+  }
+}
