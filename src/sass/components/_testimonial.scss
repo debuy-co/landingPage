@@ -12,6 +12,7 @@
 
   & > * {
     transform: skewX(12deg); //to skew back
+    //TODO: verifico questo nella lezione 42 min 18'/19' perche' aveva spiegato come getire il contrasto quando ci sono due transform properties
   }
 
   &__shape {
@@ -27,13 +28,45 @@
     //now we give the __shape and actual circle figure
     -webkit-clip-path: circle(50% at 50% 50%);
     clip-path: circle(50% at 50% 50%);
+    position: relative; //because we put the __caption to position absolute
   }
 
   &__img {
     height: 100%; //in this case it will be 15rem height because it is inside __shape and so it has 15rem avialable space if it is set to 100%
+    transition: all 0.4s;
+
+    //transform: translateX(-4rem);
+    //this it done just to show that if needed the image can be moved as well inside the box
   }
 
   &__text {
-    color: orangered;
+  }
+
+  &__caption {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(
+      -50%,
+      20%
+    ); //we put 20% on the Y coordinate becaues it will be center when we hover it
+    color: $color-white;
+    text-transform: uppercase;
+    text-align: center;
+    size: 1.6rem;
+    opacity: 0; //initial state is that is not visible
+    transition: all 0.2s; //we animate it
+    backface-visibility: hidden; //it is just for hiding the small movement when the transition is completed
+  }
+
+  //below means: "has soon as the testimonial is hover than we want to change the caption"
+  &:hover &__caption {
+    transform: translate(-50%, -50%);
+    opacity: 1;
+  }
+
+  &:hover &__img {
+    transform: scale(0.7);
+    filter: blur(3px) brightness(0.8); //inside here there are a lot of different options that you can use;
   }
 }
