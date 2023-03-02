@@ -1,9 +1,16 @@
 import React from "react";
 import ImageWhite from "../../assets/img/block-grey.jpg";
-
+import Web3video from "../../assets/video/web3_background_video.mp4";
 function Testimonials() {
   return (
     <section className="section-testimonials">
+      <div className="bg-video">
+        {/*instead of using the scr property like we would do in the images, there is actually a source tag in HTML*/}
+        <video className="bg-video__content" muted autoPlay loop>
+          <source src={Web3video} type="video/mp4" />
+          Your browser is not supported!
+        </video>
+      </div>
       <div className="u-center-text u-margin-bottom-big">
         <h2 className="heading-secondary">What they say about us</h2>
       </div>

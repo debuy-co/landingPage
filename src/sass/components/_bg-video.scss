@@ -1,0 +1,20 @@
+.bg-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%; //we want it to be exactly like the one of the parent
+  width: 100%;
+  z-index: -1; //so we can be sure that it will behind all of the other elements
+  opacity: 0.15;
+  overflow: hidden;
+
+  //now we want to fit the video inside the section correctly
+  &__content {
+    height: 100%;
+    width: 100%;
+    //these two lines above will not fix the problem by itself as it will be kept the aspect ration of the video
+
+    object-fit: cover; //by setting "cover" it will fit entirely its parent element while maintaining the aspect ratio, it is pretty similar to what was used before for the background images:
+    //background-size: cover;
+  }
+}
