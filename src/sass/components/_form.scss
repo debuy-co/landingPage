@@ -15,6 +15,7 @@
     border: none;
     width: 100%;
     display: block;
+    transition: all 1s; //to give the nice effect when go into focus mode
 
     //this below style when we click on the input
     &:focus {
@@ -39,7 +40,6 @@
   &__label {
     font-size: 1.2rem;
     font-weight: 700;
-    //color: transparent;
     margin-left: 2rem;
     margin-top: 0.7rem;
     display: block; //we have to set this otherwise we cannot use the box properties (margintop)
@@ -52,5 +52,56 @@
     opacity: 0; //we use the opacity property because it can be animated
     visibility: hidden; //I don't know why this is necessary
     transform: translateY(-4rem);
+  }
+
+  &__radio-group {
+    width: 50%;
+    display: inline-block; //in this way they will be displayed side by side, you can either use "float" property if you prefer
+  }
+
+  &__radio-input {
+    //the difference between those two is that one simplu hidxe it , the other actually removes it
+    //visibility: hidden;
+    display: none;
+  }
+
+  &__radio-label {
+    font-size: 1.6rem;
+    cursor: pointer; //it will make it look like a link
+    position: relative;
+    padding-left: 4.5rem;
+  }
+
+  //this is composed of 2 parts
+  &__radio-button {
+    height: 2rem;
+    width: 2rem;
+    border: 5px solid $color-secondary;
+    border-radius: 50%;
+    display: block; //once again, these properties only work if we give a block or inlineblock style
+
+    position: absolute; //in order to put it exactly where we want it to be
+    left: -2.8rem;
+    top: -0.8rem;
+
+    &::after {
+      content: ""; //don't forget that every time that we use a sudo element we have to specify its content property, otherwise it will not show
+      height: 1.5rem;
+      width: 1.5rem;
+      display: block;
+      border-radius: 50%;
+      position: absolute; //this time the parent is __radio-button , and even if its position is absolute is still ok. it doesn't have to be relative it need just to be specified
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: $color-secondary;
+      opacity: 0; //at the beginning shall not be visible
+    }
+  }
+
+  //so right now we have all the radio input selected which are checked and that we select its relative radio-label
+  //in other words, as soon as we hit the radio element the checked input become true, and what we do than is to select the sibling of that one and than the child's after element.
+  &__radio-input:checked ~ &__radio-label &__radio-button:after {
+    opacity: 1;
   }
 }

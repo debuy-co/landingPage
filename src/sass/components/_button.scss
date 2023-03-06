@@ -7,7 +7,9 @@
     visited -> Matches links that have been visited.
     */
   /*we want to the "visited" state to looks exactly like the "link" state*/
+
   position: relative;
+  &, //"&" alone means that we want to apply these CSS properties to the btn element itself, because a "button" element, instead of the "anchor" element don't have the "link" and "visited" sudo classes.
   &:link,
   &:visited {
     position: absolute;

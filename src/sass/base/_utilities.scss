@@ -1,7 +1,8 @@
 //this class will very simply center the element in which is wrap around
 //it is a very simple utility class
+//it is a normal practice to add "!important" keyword in the utlity class
 .u-center-text {
-  text-align: center;
+  text-align: center !important;
 }
 
 .u-center-botton {
@@ -16,25 +17,25 @@
 }
 
 .u-margin-bottom-big {
-  margin-bottom: 8rem;
+  margin-bottom: 8rem !important;
 }
 
 .u-margin-bottom-medium {
-  margin-bottom: 4rem;
+  margin-bottom: 4rem !important;
 }
 
 .u-margin-bottom-small {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.5rem !important;
 }
 
 .u-margin-top-big {
-  margin-bottom: 8rem;
+  margin-bottom: 8rem !important;
 }
 
 .u-margin-top-medium {
-  margin-bottom: 4rem;
+  margin-bottom: 4rem !important;
 }
 
 .u-margin-top-small {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.5rem !important;
 }
