@@ -1,1 +1,21 @@
+.contact-us-box {
+  //the first argument give the inclination of the gradient
+  //the 2nd, 3rd and 4th arguments give distribution of the color (at 0% to 50% must be grelight, then from 50% must be the other one)
+  background-image: linear-gradient(
+      105deg,
+      rgba($color-grey-light-1, 0.9) 0%,
+      rgba($color-grey-light-1, 0.9) 50%,
+      transparent 50%
+    ),
+    url(../../assets/img/background_block.jpg);
+  background-size: cover; //if I write 100% would be the same thing as writing cover
+  border-radius: 3px;
+  box-shadow: 0 1.5rem 4rem rgba(black, 0.2);
 
+  height: 50rem;
+
+  &__form {
+    padding: 6rem;
+    width: 35%; //so it does not take the entire width available
+  }
+}

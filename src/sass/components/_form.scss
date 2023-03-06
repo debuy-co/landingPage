@@ -1,0 +1,56 @@
+.form {
+  &__group:not(:last-child) {
+    margin-bottom: 2rem;
+  }
+  &__input {
+    font-size: 1.5rem;
+
+    //by default form don't inherit the font properties, so we need to specifically inherit it
+    color: inherit;
+    font-family: inherit;
+
+    padding: 1.5rem 2rem; //in forms we always give a bit more padding on the sides
+    border-radius: 2px;
+    background-color: rgba($color-white, 0.5);
+    border: none;
+    width: 100%;
+    display: block;
+
+    //this below style when we click on the input
+    &:focus {
+      outline: none;
+      box-shadow: 0 1rem 2rem rgba(black, 0.1);
+      border-bottom: 3px solid $color-secondary;
+
+      &:invalid {
+        border-bottom: 3px solid orangered; //when the input box is focus and the value inside the input box is invalid, then this is the color that will apply
+      }
+    }
+
+    //the two column is for sudo elements and represent things that are on the webpage
+    //these code below you can use in case you want to change the color of the placeholder of the form element
+    /*
+    &::-webkit-input-placeholder {
+      color: black;
+    }
+    */
+  }
+
+  &__label {
+    font-size: 1.2rem;
+    font-weight: 700;
+    //color: transparent;
+    margin-left: 2rem;
+    margin-top: 0.7rem;
+    display: block; //we have to set this otherwise we cannot use the box properties (margintop)
+    transition: all 0.3s;
+  }
+
+  //the first sudo selector select the placeholder, the second select the label . since they are sibling (and not one the child of the other) to select them both we have to use the operator "+"
+  //here it means , when the palaceholder is shown (so we have written nothing on the inpu field) we want the label to have below CSS properties
+  &__input:placeholder-shown + &__label {
+    opacity: 0; //we use the opacity property because it can be animated
+    visibility: hidden; //I don't know why this is necessary
+    transform: translateY(-4rem);
+  }
+}
