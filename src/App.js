@@ -5,10 +5,12 @@ import Price from "./components/price/Price";
 import Testimonials from "./components/testimonials/Testimonials";
 import ContactUs from "./components/contactUs/ContactUs";
 import Footer from "./components/layout/Footer";
+import Navigation from "./components/layout/Navigation";
 
 function App() {
   return (
     <div>
+      <Navigation />
       <Header />
       <About />
       <Features />
