@@ -13,6 +13,7 @@
     top: 6rem;
     right: 6rem;
     z-index: 2000;
+    box-shadow: 0 1rem 3rem rgba(black, 0.1);
   }
 
   &__background {
@@ -23,17 +24,21 @@
     position: fixed; //this is very similar to position absolute, with the difference that with fix it does not change position as we scroll the page
     top: 6.5rem;
     right: 6.5rem;
-    background-image: radial-gradient($color-primary, $color-secondary);
+    background-image: radial-gradient($color-secondary, $color-primary);
     z-index: 1000; //we give a high one so that it does not get hidded while we scroll on the page
+    transition: transform 0.8s cubic-bezier(0.86, 0, 0.07, 1); //The cubic-bezier() function defines a Cubic Bezier curve can be used with the animation-timing-function property and the transition-timing-function property.
   }
 
   &__nav {
     height: 100vh;
-    width: 100%;
     position: fixed;
     top: 0;
     right: 0;
     z-index: 1500;
+
+    opacity: 0; //with this alone you will not see but there are actually still there, so you need to set also the width to 0;
+    width: 0;
+    transition: all 0.8s cubic-bezier(0.86, 0, 0.07, 1);
   }
 
   &__list {
@@ -77,5 +82,14 @@
       color: $color-secondary;
       transform: translateX(1rem);
     }
+  }
+
+  &__checkbox:checked ~ &__background {
+    transform: scale(80);
+  }
+
+  &__checkbox:checked ~ &__nav {
+    opacity: 1;
+    width: 100%;
   }
 }
