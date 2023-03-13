@@ -1,0 +1,56 @@
+.popup {
+  height: 100vh;
+  width: 100%;
+  position: fixed; //so it does not move as we scroll
+  top: 0;
+  left: 0;
+  background-color: rgba(black, 0.8);
+  z-index: 6000; //we gave it a really high one otherwise some components (like button) are not covered
+
+  &__content {
+    @include centered;
+    width: 75%;
+    background-color: $color-white;
+    box-shadow: 0 2rem 4rem rgba(black, 0.2);
+    border-radius: 3px;
+    display: table; //related to table below
+    overflow: hidden; //handy tip to remove the picture from the angles where we have the border radius
+  }
+
+  &__left {
+    width: 33.3333%;
+    //float: left;
+    //we don't use floating otherwise the two parts don't have the same height and it would be difficult to center one in respect to the other part.
+    //so we use table-cell
+    display: table-cell;
+  }
+  &__right {
+    width: 66.6667%;
+    //float: left; //could be rigth but it does not really matter because they have 100% together anyway
+    display: table-cell;
+    vertical-align: middle; //thanks to table-cell we can use this parameter and center all to the middle
+    padding: 5rem 3rem;
+  }
+  &__img {
+    display: block; //that is usually a good idea to do
+    width: 100%;
+  }
+
+  &__text {
+    font-size: 1.4rem;
+    margin-bottom: 4rem;
+
+    -moz-column-count: 2;
+    -moz-column-gap: 4rem;
+    -moz-column-rule: 1px;
+
+    column-count: 2; //this is a new CSS feature to divide the text into columns
+    column-gap: 4rem;
+    column-rule: 1px solid $color-secondary;
+
+    hyphens: auto; //to make the breaks on the text, but it needs a lot of prefix to work properly
+    -moz-hyphens: auto;
+    -ms-hyphens: auto;
+    -webkit-hyphens: auto;
+  }
+}
