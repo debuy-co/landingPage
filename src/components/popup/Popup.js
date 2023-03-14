@@ -3,7 +3,8 @@ import ImageWhite from "../../assets/img/block-grey.jpg";
 
 function Popup() {
   return (
-    <div className="popup">
+    //when the anchor is clicked (in Price.js) this "id" will become the target
+    <div className="popup" id="popup">
       <div className="popup__content">
         {/*it is important that these 2 popups have the same height*/}
         <div className="popup__left">
@@ -11,6 +12,11 @@ function Popup() {
           <img src={ImageWhite} alt="image2" className="popup__img" />
         </div>
         <div className="popup__right">
+          {/*here below is the small buttom to close the popup and "section-price" will become the target*/}
+          {/*"times" is another HTML entity which is basically like an X */}
+          <a href="#section-price" className="popup__close">
+            &times;
+          </a>
           <h2 className="heading-secondary">Booking</h2>
           <h2 className="heading-tertiary">rebooking</h2>
           <p className="popup__text">

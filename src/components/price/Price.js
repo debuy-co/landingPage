@@ -2,7 +2,7 @@ import React from "react";
 
 function Price() {
   return (
-    <section className="section-price">
+    <section className="section-price" id="section-price">
       <div className="u-center-text u-margin-bottom-big">
         <h2 className="heading-secondary">Prices</h2>
       </div>
@@ -35,7 +35,7 @@ function Price() {
                   <p className="card__price-value">$297</p>
                 </div>
                 {/*btn--white is the same scss element that we styled when using the header*/}
-                <a href="#1" className="btn btn--white btn--animation">
+                <a href="#popup" className="btn btn--white btn--animation">
                   Book now
                 </a>
               </div>
@@ -68,7 +68,7 @@ function Price() {
                   <p className="card__price-value">$xxx</p>
                 </div>
                 {/*btn--white is the same scss element that we styled when using the header*/}
-                <a href="#1" className="btn btn--white btn--animation">
+                <a href="#popup" className="btn btn--white btn--animation">
                   Book now
                 </a>
               </div>
@@ -101,7 +101,7 @@ function Price() {
                   <p className="card__price-value">$xxx</p>
                 </div>
                 {/*btn--white is the same scss element that we styled when using the header*/}
-                <a href="#1" className="btn btn--white btn--animation">
+                <a href="#popup" className="btn btn--white btn--animation">
                   Book now
                 </a>
               </div>
