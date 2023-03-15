@@ -18,6 +18,31 @@ html {
 
   /*it is actually a bad practice to give a fixed pixel value to the root font size, because we are overwriting the user default settins. It is better to use in percentage and since we still want 10px and the absolute default px is 16 (if the user haven't change it) so we need to give:*/
   font-size: 62.5%; //this is not typography , because it is just a setting of the size of the elements in the page --> this define what 1rem is
+  //by changing above font size all the measurements below will scale up or down according to the font size
+
+  /*
+  @include responde-phone {
+    font-size: 50%;
+  }
+  */
+
+  /*
+  @include media(phone) {
+    font-size: 50%;
+  }
+  */
+  //we actually don't need above one because we are fine to apply 50% also for mobile devices
+
+  @include respond(tab-land) {
+    font-size: 56.25%; //1 rem = 9px, 9/16 = 56.25%
+  }
+  @include respond(tab-port) {
+    font-size: 50%; //we want 1 rem to be 8px, and so 8/16 = 50%
+  }
+
+  @include respond(big-desktop) {
+    font-size: 75%; //1 rem = 12px, 12/16 = 75%
+  }
 }
 
 /*in this case we no longer use the universal selector but body, all the property will be inherithed by its child*/
