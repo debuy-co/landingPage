@@ -11,6 +11,10 @@
 
   transition: all 0.2s;
 
+  @include respond(tab-port) {
+    padding: 2rem;
+  }
+
   &:hover {
     transform: translateY(-0.5rem) scale(1.05);
     box-shadow: 0 2.5rem 4rem rgba(black, 0.8);
@@ -27,6 +31,10 @@
     );
     -webkit-background-clip: text;
     color: transparent;
+
+    @include respond(tab-port) {
+      margin-bottom: 0;
+    }
   }
 
   //here we can actually avoid to code this part because it will inherit the font size from .feature-box and that is all we need
