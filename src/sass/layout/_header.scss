@@ -16,6 +16,11 @@
     0 100%
   ); /*this gives the cut out effect on the back ground image*/
 
+  @include respond(phone) {
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 95%, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 95%, 0 100%);
+  }
+
   position: relative;
   /*
     when using "position" in CSS we have to consider:

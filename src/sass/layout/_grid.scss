@@ -13,6 +13,14 @@
   //this is another powerful preimpostata sudo class
   &:not(:last-child) {
     margin-bottom: $gutter-vertical; //to have some space at the bottom of the rows
+    @include respond(tab-port) {
+      margin-bottom: $gutter-vertical-small;
+    }
+  }
+
+  @include respond(tab-port) {
+    max-width: 50rem;
+    padding: 0 3rem;
   }
 
   @include clearfix;
@@ -25,6 +33,15 @@
     //if all the elements are floating the height of the row element will collapse and become zero, so what we do in this case is to use the "clear fix hack" as we added above with the "include" method
     &:not(:last-child) {
       margin-right: $gutter-horizontal;
+      @include respond(tab-port) {
+        margin-right: 0;
+        margin-bottom: $gutter-vertical-small; //the columns as they became rows they shall have now a margin bottom
+      }
+    }
+
+    //here we want that all the columns become rows
+    @include respond(tab-port) {
+      width: 100% !important; //we set it to important so that we are sure that all the width are overwritten
     }
   }
 
