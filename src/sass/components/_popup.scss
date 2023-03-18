@@ -32,6 +32,15 @@
     //we don't use floating otherwise the two parts don't have the same height and it would be difficult to center one in respect to the other part.
     //so we use table-cell
     display: table-cell;
+
+    @include respond(tab-port) {
+      display: flex; //flex in modo da metterla una dopo l'altra anziche' una sopra l'altra
+      width: 40%;
+    }
+
+    @include respond(phone) {
+      display: none; //non voglio le immagini nel telefono perche non c'e spazio
+    }
   }
   &__right {
     width: 66.6667%;
@@ -39,6 +48,11 @@
     display: table-cell;
     vertical-align: middle; //thanks to table-cell we can use this parameter and center all to the middle
     padding: 5rem 3rem;
+
+    @include respond(tab-port) {
+      float: top;
+      display: block; //
+    }
   }
   &__img {
     display: block; //that is usually a good idea to do
@@ -61,6 +75,11 @@
     -moz-hyphens: auto;
     -ms-hyphens: auto;
     -webkit-hyphens: auto;
+
+    @include respond(tab-port) {
+      margin-bottom: 2rem;
+      column-count: 1;
+    }
   }
 
   //the target is basically the target of the anchor

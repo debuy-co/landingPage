@@ -10,9 +10,23 @@
   //to give the parallelepipedo shape
   transform: skewX(-12deg);
 
+  @include respond(tab-port) {
+    width: 100%;
+    padding: 4rem;
+    padding-left: 7rem;
+  }
+
+  @include respond(phone) {
+    transform: skewX(0); //we want to get rid of that shape
+  }
+
   & > * {
     transform: skewX(12deg); //to skew back
     //TODO: verifico questo nella lezione 42 min 18'/19' perche' aveva spiegato come getire il contrasto quando ci sono due transform properties
+
+    @include respond(phone) {
+      transform: skewX(0); //we want to get rid of that shape
+    }
   }
 
   &__shape {

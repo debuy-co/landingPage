@@ -13,9 +13,14 @@
     border-radius: 2px;
     background-color: rgba($color-white, 0.5);
     border: none;
-    width: 100%;
+    width: 90%;
     display: block;
     transition: all 1s; //to give the nice effect when go into focus mode
+
+    @include respond(tab-port) {
+      width: 100%;
+      margin-bottom: 2rem;
+    }
 
     //this below style when we click on the input
     &:focus {
@@ -57,6 +62,11 @@
   &__radio-group {
     width: 50%;
     display: inline-block; //in this way they will be displayed side by side, you can either use "float" property if you prefer
+
+    @include respond(tab-port) {
+      width: 100%;
+      margin-bottom: 2rem;
+    }
   }
 
   &__radio-input {
