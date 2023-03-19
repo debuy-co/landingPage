@@ -11,6 +11,16 @@
   visibility: hidden; //we hidden also the content, otherwise it will just be there and be just not visible
   transition: all 0.3s;
 
+  //below it means if these two are supported then we apply the property between brakets
+  @supports (-webkit-backdrop-filter: blur(10px)) or
+    (backdrop-filter: blur(10px)) {
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(
+      10px
+    ); //this property currently does not work in Chrome
+    background-color: rgba(black, 0.3);
+  }
+
   &__content {
     @include centered;
     width: 75%;

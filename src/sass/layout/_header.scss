@@ -19,7 +19,9 @@
   //this below is not a mediaquery targeting the device width but the device resolution
   //so if the resolution is higher than 192dpi and at the same time the widht is larget the 600px (because it does not make sense to load huge picutres on phones) it will use the normal image otherwise it will use the small resolution one
   //comma stands for "or"
-  @media (min-resolution: 192dpi) and (min-width: 37.5em), (min-width: 125em) {
+  @media (min-resolution: 192dpi) and (min-width: 37.5em),
+    (-webkit-min-device-pixekl-ratio: 2) and (min-width: 37.5em),
+    /*webkit we wrote for Safari otherwise it does not work there*/ (min-width: 125em) {
     background-image: linear-gradient(
         to left top,
         rgba($color-primary, 0.8),
