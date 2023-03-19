@@ -5,7 +5,7 @@
       rgba($color-primary, 0.8),
       rgba($color-secondary, 0.8)
     ),
-    url("../../assets/img/background_block.jpg"); /*in this situation we have two background images on top of each other, the first one is the linear gradient the second one is the image*/
+    url("../../assets/img/background_block_low.jpg"); /*in this situation we have two background images on top of each other, the first one is the linear gradient the second one is the image*/
   background-size: cover;
   background-position: top; /*it ensure that the top of the image always stays at the top of the container*/
   -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
@@ -15,6 +15,29 @@
     100% 85%,
     0 100%
   ); /*this gives the cut out effect on the back ground image*/
+
+  //this below is not a mediaquery targeting the device width but the device resolution
+  //so if the resolution is higher than 192dpi and at the same time the widht is larget the 600px (because it does not make sense to load huge picutres on phones) it will use the normal image otherwise it will use the small resolution one
+  //comma stands for "or"
+  @media (min-resolution: 192dpi) and (min-width: 37.5em), (min-width: 125em) {
+    background-image: linear-gradient(
+        to left top,
+        rgba($color-primary, 0.8),
+        rgba($color-secondary, 0.8)
+      ),
+      url("../../assets/img/background_block.jpg"); /*in this situation we have two background images on top of each other, the first one is the linear gradient the second one is the image*/
+  }
+
+  //this below we implement because for small resolution screen if the screen is big is still better to uplaod the big image
+  //actually it can be combined above using the ","
+  // @media (min-width: 2000px) {
+  //   background-image: linear-gradient(
+  //       to left top,
+  //       rgba($color-primary, 0.8),
+  //       rgba($color-secondary, 0.8)
+  //     ),
+  //     url("../../assets/img/background_block.jpg"); /*in this situation we have two background images on top of each other, the first one is the linear gradient the second one is the image*/
+  // }
 
   @include respond(phone) {
     -webkit-clip-path: polygon(0 0, 100% 0, 100% 95%, 0 100%);
