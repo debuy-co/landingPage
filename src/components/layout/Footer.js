@@ -4,7 +4,7 @@ import fullLogoLow from "../../assets/logo/full_transparent_low.png";
 import logo from "../../assets/logo/logoname_transparent.png";
 
 function Footer() {
-  let logoDensitySwitching = `${fullLogoHigh} 2x, ${fullLogoLow} 1x`;
+  let logoDensitySwitching = `${fullLogoLow} 1x, ${fullLogoHigh} 2x`;
   return (
     <footer className="footer">
       <div className="footer__logo-box">
@@ -30,6 +30,7 @@ function Footer() {
             srcSet={logoDensitySwitching}
             alt="fullLogo"
             className="footer__logo"
+            src={fullLogoHigh} //this one we use just in case "srcSet" is not supported by the browser you are using
           ></img>
         </picture>
       </div>
