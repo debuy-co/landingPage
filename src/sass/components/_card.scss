@@ -200,7 +200,10 @@
   }
 
   //in this case we are not only making minor UI changes, but we also change the functionality of this component
-  @include respond(tab-port) {
+
+  //@include respond(tab-port)
+  //we modify this above because we don't only want to happen when we have a screen smaller that 600px but also on touch devices of all siezes
+  @media only screen and (max-width: 56.25em), only screen and (hover: none) {
     height: auto;
     border-radius: 3px;
     background-color: $color-white;

@@ -58,3 +58,9 @@ body {
     padding: 0;
   }
 }
+
+//here below will change the style when selecting some codes
+::selection {
+  background-color: $color-secondary;
+  color: $color-white;
+}
